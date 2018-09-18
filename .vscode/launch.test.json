@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "maven-test",
+                "projectName": "maven-test",
+                "workingDirectory": "d:\\ZhouShuai\\Source\\VScode-Java\\maven-test\\maven-test",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "maven-test",
+                "projectName": "maven-test",
+                "workingDirectory": "d:\\ZhouShuai\\Source\\VScode-Java\\maven-test\\maven-test",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
