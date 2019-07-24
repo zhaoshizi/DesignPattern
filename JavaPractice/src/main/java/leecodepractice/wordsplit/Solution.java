@@ -22,12 +22,45 @@ import java.util.List;
 // 输出: false
 
 public class Solution {
-
+    //动态规划
     public static boolean wordBreak(String s, List<String> wordDict) {
+        int[] flag = new int[s.length()+1];
+
         if (wordDict.size() == 0)
             return false;
-        int minLength = s.length();
-        int maxLength = 0;
+        int minLength = Integer.MAX_VALUE;
+        int maxLength = Integer.MIN_VALUE;
+        for (String str : wordDict) {
+            if(minLength > str.length())
+                minLength = str.length();
+            if(maxLength < str.length())
+                maxLength = str.length();
+        }
+        flag[0] = 1;
+        for(int i =0; i<=s.length(); i++){
+            //字符串分两部分，前一部分长度为0或大于等于最小长度才执行
+            if(i>=minLength || i==0 ){
+                //后一部分大于最大长度不执行
+                for(int j =i+minLength; j<=s.length()&&(j-i)<=maxLength; j++){
+                    if(flag[i] ==1 && wordDict.contains(s.substring(i,j))){
+                        flag[j] = 1;
+                        if (flag[s.length()]==1)
+                            return true;
+                    }
+                }
+            }      
+        }
+        return flag[s.length()]==1;
+
+    }
+
+
+    //笨办法，时间复杂度高
+    public static boolean wordBreak1(String s, List<String> wordDict) {
+        if (wordDict.size() == 0)
+            return false;
+        int minLength = Integer.MAX_VALUE;
+        int maxLength = Integer.MIN_VALUE;
         for (String str : wordDict) {
             if(minLength > str.length())
                 minLength = str.length();
@@ -39,25 +72,23 @@ public class Solution {
     }
 
     public static boolean subWordBreak(String s, List<String> wordDict, int minLength,int maxLength){
-        System.out.println(s);
+        //System.out.println(s);
         if (s.length() < minLength)
-            return false;
-        if(s.length() > maxLength)
             return false;
         if (wordDict.contains(s))
             return true;
-        else if(s.length() == minLength)
-            return false;
-        for(int i = minLength; i<=s.length()-minLength+1;i++){
-            if(subWordBreak(s.substring(0, i), wordDict, minLength,maxLength) && subWordBreak(s.substring(i), wordDict, minLength,maxLength))
+        for(int i = maxLength; i>0 ;i--){
+            if(s.length()>= i && wordDict.contains(s.substring(0, i)) && subWordBreak(s.substring(i), wordDict, minLength,maxLength))
                 return true;
         }
         return false;
     }
 
     public static void main(String[] args) {
-        String s = "ab";
-        String[] words = {"a"};
+        // String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab";
+        // String[] words = {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"};
+        String s = "a";
+        String[] words = {};
         List<String> wordDict = new ArrayList<String>();
         for (String word : words) {
             wordDict.add(word);

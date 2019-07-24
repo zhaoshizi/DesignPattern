@@ -1,6 +1,10 @@
 package leecodepractice;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Practise1 {
 
@@ -55,6 +59,24 @@ public class Practise1 {
             System.out.println(h);
     }
 
+    public static String largestNumber(int[] nums){
+        List<String> strList = new ArrayList<String>();
+        for(int n : nums){
+            strList.add(String.valueOf(n));
+        }
+
+        Collections.sort(strList,(x,y)->{return ((y+x).compareTo(x+y));});
+        String str = "";
+        if(strList.get(0).equals( "0"))
+            return "0";
+
+        for(String s : strList){
+            str = str + s;
+        }
+        return str;
+
+    }
+
     public static void main(String[] args) {
         // int[] nums = {1,1,2,3,4,5,6,3,4,5,6};
         // findSingleNum(nums);
@@ -62,8 +84,12 @@ public class Practise1 {
         // int[] nums = { 1, 1, 2 ,2,2};
         // findMajorityElement(nums);
         // -------------
-        int[] nums1 = {2,0};
-        int[] nums2 = {1};
-        merge(nums1, 1, nums2, 1);
+        // int[] nums1 = {2,0};
+        // int[] nums2 = {1};
+        // merge(nums1, 1, nums2, 1);
+        // System.out.println(System.currentTimeMillis());
+        int[] nums ={121,12};
+        System.out.println(largestNumber(nums));
+
     }
 }
