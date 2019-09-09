@@ -1,4 +1,4 @@
-package leecodepractice.lengthoflis;
+package leetcodepractice.lengthoflis;
 
 import java.util.ArrayList;
 import java.util.List;

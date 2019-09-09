@@ -1,4 +1,4 @@
-package leecodepractice;
+package leetcodepractice;
 
 /**
  * Hello world!

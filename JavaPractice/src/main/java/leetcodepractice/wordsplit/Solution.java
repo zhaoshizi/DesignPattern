@@ -1,4 +1,4 @@
-package leecodepractice.wordsplit;
+package leetcodepractice.wordsplit;
 import java.util.ArrayList;
 import java.util.List;
 

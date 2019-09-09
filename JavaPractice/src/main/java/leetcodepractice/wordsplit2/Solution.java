@@ -4,7 +4,7 @@
 // 分隔时可以重复使用字典中的单词。
 // 你可以假设字典中没有重复的单词。
 
-package leecodepractice.wordsplit2;
+package leetcodepractice.wordsplit2;
 
 import java.util.ArrayList;
 import java.util.List;
