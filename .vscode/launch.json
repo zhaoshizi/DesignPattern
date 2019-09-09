@@ -11,7 +11,7 @@
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "mainClass": "java.zs.App",
+            "mainClass": "interceptingfilterpattern.InterceptingFilterPatternDemo",
             "args": ""
         },
         {

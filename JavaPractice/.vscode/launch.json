@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Solution",
+            "request": "launch",
+            "mainClass": "leecodepractice.wordsplit.Solution",
+            "projectName": "JavaPractice"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LengthOfLIS",
+            "request": "launch",
+            "mainClass": "leecodepractice.lengthoflis.LengthOfLIS",
+            "projectName": "JavaPractice"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
